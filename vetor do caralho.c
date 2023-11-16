@@ -21,42 +21,48 @@ int main()
 
     for (i = 0; i < size; i++)
     {
+
         printf("digite um numero: ");
         scanf("%d", &num[i]);
         soma += num[i];
-        media = soma / size;
-
-        maior = num[i] > maior ? num[i] : maior;
-
-        if (num[i] < menor)
-        {
-            menor = num[i];
-        }
 
         if (num[i] % 2 == 0)
         {
             par++;
             somaPar += num[i];
-            mediaPar = somaPar / par;
         }
         else
         {
             impar++;
             somaIMpar += num[i];
-            mediaImpar = somaIMpar / (float)impar;
         }
 
-        if (num[i] >= 0)
+        if (num[i] > 0)
         {
             positivo++;
         }
-        else
+
+        if (num[i] < 0)
         {
             negativo++;
         }
+
+        if (num[i] > maior)
+        {
+            maior = num[i];
+        }
+
+        if (num[i] < menor)
+        {
+            menor = num[i];
+        }
     }
 
-    for (i = 4; i >= 0; i --)
+    media = soma / (float)size;
+    mediaPar = somaPar / (float)par;
+    mediaImpar = somaIMpar / (float)impar;
+
+    for (i = 4; i >= 0; i--)
     {
         printf("numeros: %d\n", num[i]);
     }
